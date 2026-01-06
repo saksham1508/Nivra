@@ -1,8 +1,11 @@
-# Nivra - AI-Powered Financial OS
+# Nivra - India's AI-Powered Financial Operating System
 
-Nivra is a production-ready, RBI-compliant Indian FinTech application designed as an AI-driven Money Manager and Credit Engine.
+Nivra is a production-ready, RBI-compliant Indian FinTech application designed as an AI-driven Money Manager and Alternative Credit Engine. It integrates UPI payments, the Account Aggregator (AA) framework, and advanced AI insights into a unified mobile and web experience.
+
+---
 
 ## 🏗️ System Architecture
+
 ```text
                                   +-------------------+
                                   |   Mobile App      |
@@ -12,7 +15,7 @@ Nivra is a production-ready, RBI-compliant Indian FinTech application designed a
                                             | REST / gRPC
                                             v
 +---------------------------------------------------------------------------------------+
-|                                    API Gateway (Kong)                                  |
+|                                    API Gateway (Kong)                                 |
 +---------+--------------------+--------------------+--------------------+--------------+
           |                    |                    |                    |
           v                    v                    v                    v
@@ -22,26 +25,91 @@ Nivra is a production-ready, RBI-compliant Indian FinTech application designed a
 +---------+---------+  +-------+---------+  +-------+---------+  +-------+---------+
 ```
 
-## 🛠️ Tech Stack
-- **Frontend**: Flutter (Mobile) & React (Web Dashboard)
-- **UI**: Tailwind CSS, Lucide-React, Recharts
-- **Backend**: Node.js (TypeScript) & FastAPI (Python)
-- **Database**: PostgreSQL (Core), Redis (Cache), ClickHouse (Analytics)
-- **Infra**: AWS (ap-south-1), EKS, Kafka
-- **AI**: Python (XGBoost, Scikit-learn)
+---
 
-## ⚖️ RBI/NPCI Compliance Mapping
-- **Data Localization**: All PII stored in AWS Mumbai (`ap-south-1`).
-- **Account Aggregator**: Full consent lifecycle (Create/Fetch/Revoke) as per ReBIT specs.
-- **Security**: AES-256 encryption for sensitive data at rest; mTLS for inter-service communication.
-- **Audit Trails**: Tamper-proof consent logs for every data access.
+## 🚀 Key Features
+
+- **Unified Dashboard**: Aggregated view of all bank accounts via the Account Aggregator framework.
+- **AI Money Manager**: Intelligent categorization of expenses and personalized financial health scoring (0-1000).
+- **UPI Payments**: Integrated P2P and P2M payment flows with event-driven transaction logging.
+- **Alternative Credit Scoring**: Proprietary scoring model for "thin-file" users using transaction consistency and utility data.
+- **Multi-Platform**: High-performance mobile app built with Flutter and a sophisticated web dashboard built with React.
+- **Security First**: Zero-trust architecture with AES-256 PII encryption and RBI-mandated data localization.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Mobile**: Flutter (Dart)
+- **Web**: React (TypeScript), Tailwind CSS
+- **Backend**: Node.js (TypeScript), Express
+- **AI Service**: Python, FastAPI, Scikit-learn, Pandas
+- **Database**: PostgreSQL (Core), ClickHouse (Analytics), Redis (Cache)
+- **Infra**: AWS (ap-south-1), EKS, GitHub Actions (CI/CD)
+
+---
+
+## 📂 Project Structure
+
+```text
+├── ai_service/         # Python FastAPI service for ML & Scoring
+├── backend/            # Node.js TypeScript core backend
+├── mobile_app/         # Flutter mobile application
+├── web_app/            # React web dashboard
+├── db/                 # PostgreSQL schema and migrations
+└── .github/workflows/  # CI/CD pipeline configurations
+```
+
+---
+
+## ⚖️ Security & Compliance
+
+| Regulatory Body | Requirement | Implementation in Nivra |
+| :--- | :--- | :--- |
+| **RBI** | **Data Localization** | All PII and transaction data stored exclusively in AWS Mumbai region. |
+| **RBI** | **Consent Framework** | Full AA consent lifecycle (Create/Fetch/Revoke) implemented per ReBIT specs. |
+| **NPCI** | **UPI Security** | Encrypted VPA handling and device-binding logic. |
+| **RBI** | **Cyber Security** | AES-256 encryption at rest and mTLS for all inter-service communication. |
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Backend Setup
+```bash
+cd backend
+npm install
+npm run build
+npm start
+```
+
+### 2. AI Service Setup
+```bash
+cd ai_service
+python -m venv venv
+source venv/bin/activate  # venv\Scripts\activate on Windows
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+### 3. Web App Setup
+```bash
+cd web_app
+npm install
+npm run dev
+```
+
+### 4. Mobile App Setup
+```bash
+cd mobile_app
+flutter pub get
+flutter run
+```
+
+---
 
 ## 💰 Monetization Hooks
-- **Nivra Pro**: Subscription-based advanced tax and wealth insights.
-- **Credit Marketplace**: NBFC lead generation via alternative scoring.
-- **Merchant Insights**: Anonymized spending analytics for B2B partners.
 
-## 🚀 Deployment & Scalability
-- **CI/CD**: GitHub Actions for automated testing and EKS deployment.
-- **Scalability**: Horizontal pod autoscaling and DB sharding via Citus.
-- **Observability**: Prometheus & ELK stack integration.
+- **Nivra Pro**: Subscription for advanced tax planning and deep wealth analytics.
+- **Lending Marketplace**: Lead generation for NBFC partners via the Credit Engine.
+- **Investment Commissions**: Referral and integration hooks for Insurance and Mutual Fund partners.
