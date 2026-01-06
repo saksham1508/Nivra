@@ -23,7 +23,8 @@ Nivra is a production-ready, RBI-compliant Indian FinTech application designed a
 ```
 
 ## 🛠️ Tech Stack
-- **Frontend**: Flutter (Mobile-first)
+- **Frontend**: Flutter (Mobile) & React (Web Dashboard)
+- **UI**: Tailwind CSS, Lucide-React, Recharts
 - **Backend**: Node.js (TypeScript) & FastAPI (Python)
 - **Database**: PostgreSQL (Core), Redis (Cache), ClickHouse (Analytics)
 - **Infra**: AWS (ap-south-1), EKS, Kafka
